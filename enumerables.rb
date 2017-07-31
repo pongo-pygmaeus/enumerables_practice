@@ -19,13 +19,13 @@ module Enumerables
   def self.max_using_each(array)
   end
 
-  def self.max_using_max_by(array)
+  def self.max_using_max(array)
   end
 
   def self.min_using_each(array)
   end
 
-  def self.min_using_min_by(array)
+  def self.min_using_min(array)
   end
 
   def self.sort_using_sort(array)
