@@ -30,16 +30,16 @@ RSpec.describe Enumerables do
       expect(Enumerables.max_using_each(integers)).to eq 42
     end
 
-    it 'finds the largest using max_by' do
-      expect(Enumerables.max_using_max_by(integers)).to eq 42
+    it 'finds the largest using max' do
+      expect(Enumerables.max_using_max(integers)).to eq 42
     end
 
     it 'finds the smallest using each' do
       expect(Enumerables.min_using_each(integers)).to eq 1
     end
 
-    it 'finds the smallest using min_by' do
-      expect(Enumerables.min_using_min_by(integers)).to eq 1
+    it 'finds the smallest using min' do
+      expect(Enumerables.min_using_min(integers)).to eq 1
     end
 
     it 'sorts using sort' do
