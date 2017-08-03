@@ -213,10 +213,12 @@ module EnumerablesPractice
     end
 
     def mergesort(array, &block)
+      p array
       return array if array.size <= 1
       mid   = array.size / 2
       left  = array[0, mid]
       right = array[mid, array.size]
+
       merge(mergesort(left, &block), mergesort(right, &block), &block)
     end
 
