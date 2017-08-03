@@ -100,10 +100,10 @@ module EnumerablesPractice
     def largest_box_by_volume_using_max_by(boxes)
     end
 
-    def sort_ascending_without_sort(integers)
+    def sort_ascending_without_sort(array)
     end
 
-    def sort_descending_without_sort(integers)
+    def sort_descending_without_sort(array)
     end
 
     def reverse_boxes_array(boxes)
