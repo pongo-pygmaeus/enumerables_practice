@@ -144,5 +144,9 @@ RSpec.describe EnumerablesPractice do
     it 'sorts the integer list from largest to smallest WITHOUT .sort' do
       expect(EnumerablesPractice.sort_descending_without_sort(integers)).to eq [42, 17, 12, 10, 9, 8, 5, 2, 1]
     end
+
+    it 'reverses the order of the boxes WITHOUT .reverse' do
+      expect(EnumerablesPractice.reverse_boxes_array(boxes)).to eq [boxes[3], boxes[2], boxes[1], boxes[0]]
+    end
   end
 end

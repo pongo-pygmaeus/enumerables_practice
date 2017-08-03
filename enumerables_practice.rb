@@ -106,5 +106,7 @@ module EnumerablesPractice
     def sort_descending_without_sort(integers)
     end
 
+    def reverse_boxes_array(boxes)
+    end
   end
 end
