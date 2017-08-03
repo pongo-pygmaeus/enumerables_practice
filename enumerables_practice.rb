@@ -184,13 +184,17 @@ module EnumerablesPractice
       boxes.max_by { |box| box.length * box.width * box.height }
     end
 
-    def sort_ascending_without_sort(integers)
+    def sort_ascending_without_sort(array)
     end
 
-    def sort_descending_without_sort(integers)
+    def sort_descending_without_sort(array)
     end
 
     def reverse_boxes_array(boxes)
+    end
+
+  private
+    def mergesort(array)
     end
   end
 end
