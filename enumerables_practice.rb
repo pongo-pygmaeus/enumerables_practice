@@ -185,16 +185,45 @@ module EnumerablesPractice
     end
 
     def sort_ascending_without_sort(array)
+      mergesort(array) { |a,b| a <= b }
     end
 
     def sort_descending_without_sort(array)
+      mergesort(array) { |a,b| a >= b }
     end
 
     def reverse_boxes_array(boxes)
+      mergesort(boxes) { |a,b| a.weight >= b.weight }
     end
 
   private
-    def mergesort(array)
+
+    def mergesort(array, &block)
+      return array if array.size <= 1
+      mid   = array.size / 2
+      left  = array[0, mid]
+      right = array[mid, array.size]
+      merge(mergesort(left, &block), mergesort(right, &block), &block)
+    end
+
+    def merge(left, right)
+      sorted = []
+      until left.empty? || right.empty?
+        comparison = false
+
+        if block_given?
+          comparison = yield(left.first, right.first)
+        else
+          comparison = left.first <= right.first
+        end
+
+        if comparison
+          sorted << left.shift
+        else
+          sorted << right.shift
+        end
+      end
+      sorted.concat(left).concat(right)
     end
   end
 end
