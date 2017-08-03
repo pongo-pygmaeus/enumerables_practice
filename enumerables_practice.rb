@@ -197,14 +197,20 @@ module EnumerablesPractice
     end
 
     def reverse_boxes_array(boxes)
-      mergesort(boxes) { |a,b| a.weight >= b.weight }
-      # OR use .reverse method below
+      # p boxes
+      # mergesort(boxes) { |a,b| a.weight >= b.weight }
+      # OR
+      reverse(boxes)
     end
 
   private
 
-    def reverse(array, &block)
-      # TODO
+    def reverse(array)
+      return nil if !array
+      return [] if array == []
+      copy = []
+      array.each{|element| copy << element}
+      [copy.pop].concat(reverse(copy))
     end
 
     def mergesort(array, &block)
@@ -219,13 +225,11 @@ module EnumerablesPractice
       sorted = []
       until left.empty? || right.empty?
         comparison = false
-
         if block_given?
           comparison = yield(left.first, right.first)
         else
           comparison = left.first <= right.first
         end
-
         if comparison
           sorted << left.shift
         else
