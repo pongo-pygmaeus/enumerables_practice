@@ -22,7 +22,7 @@ RSpec.describe EnumerablesPractice do
                                          width:  12,
                                          height: 12,
                                          weight: 400,
-                                         color:  "red"),
+                                         color:  "yellow"),
                   ]}
 
   describe 'basic enumerables practice' do
@@ -99,11 +99,11 @@ RSpec.describe EnumerablesPractice do
     end
 
     it 'finds all the red colored boxes using each' do
-      expect(EnumerablesPractice.find_red_boxes_using_each(boxes)).to eq [boxes[0], boxes[3]]
+      expect(EnumerablesPractice.find_red_boxes_using_each(boxes)).to eq [boxes[0]]
     end
 
     it 'finds all the red colored boxes using select' do
-      expect(EnumerablesPractice.find_red_boxes_using_select(boxes)).to eq [boxes[0], boxes[3]]
+      expect(EnumerablesPractice.find_red_boxes_using_select(boxes)).to eq [boxes[0]]
     end
 
     it 'adds up all the box weights using each' do
@@ -143,6 +143,10 @@ RSpec.describe EnumerablesPractice do
 
     it 'sorts the integer list from largest to smallest WITHOUT .sort' do
       expect(EnumerablesPractice.sort_descending_without_sort(integers)).to eq [42, 17, 12, 10, 9, 8, 5, 2, 1]
+    end
+
+    it 'sorts the boxes by box color alphabetically WITHOUT sort' do
+      expect(EnumerablesPractice.sort_boxes_by_color(boxes)).to eq [boxes[1], boxes[2], boxes[0], boxes[3]]
     end
 
     it 'reverses the order of the boxes WITHOUT .reverse' do

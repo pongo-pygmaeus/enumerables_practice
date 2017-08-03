@@ -106,6 +106,9 @@ module EnumerablesPractice
     def sort_descending_without_sort(array)
     end
 
+    def sort_boxes_by_color(boxes)
+    end
+
     def reverse_boxes_array(boxes)
     end
   end
