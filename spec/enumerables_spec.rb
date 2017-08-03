@@ -115,11 +115,11 @@ RSpec.describe EnumerablesPractice do
     end
 
     it 'generates an array of all the box colors using each' do
-      expect(EnumerablesPractice.generate_array_of_box_colors_using_each(boxes)).to eq ["red", "blue", "green", "red"]
+      expect(EnumerablesPractice.generate_array_of_box_colors_using_each(boxes)).to eq ["red", "blue", "green", "yellow"]
     end
 
     it 'generates an array of all the box colors using map' do
-      expect(EnumerablesPractice.generate_array_of_box_colors_using_map(boxes)).to eq ["red", "blue", "green", "red"]
+      expect(EnumerablesPractice.generate_array_of_box_colors_using_map(boxes)).to eq ["red", "blue", "green", "yellow"]
     end
 
     it 'sorts the boxes in descending order based on weight' do
