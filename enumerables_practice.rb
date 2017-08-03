@@ -2,10 +2,10 @@ module EnumerablesPractice
 
   class Box
     attr_accessor :length,
-    :width,
-    :height,
-    :weight,
-    :color
+                  :width,
+                  :height,
+                  :weight,
+                  :color
 
     def initialize(args = {})
       @length = args[:length]
