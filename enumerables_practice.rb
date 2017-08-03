@@ -192,6 +192,9 @@ module EnumerablesPractice
       mergesort(array) { |a,b| a >= b }
     end
 
+    def sort_boxes_by_color(boxes)
+    end
+
     def reverse_boxes_array(boxes)
       mergesort(boxes) { |a,b| a.weight >= b.weight }
     end
