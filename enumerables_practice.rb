@@ -197,8 +197,7 @@ module EnumerablesPractice
     end
 
     def reverse_boxes_array(boxes)
-      # p boxes
-      # mergesort(boxes) { |a,b| a.weight >= b.weight }
+      mergesort(boxes) { |a,b| a.weight >= b.weight }
       # OR
       reverse(boxes)
     end
