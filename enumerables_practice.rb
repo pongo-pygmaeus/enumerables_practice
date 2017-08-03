@@ -193,13 +193,19 @@ module EnumerablesPractice
     end
 
     def sort_boxes_by_color(boxes)
+      mergesort(boxes) { |a,b| a.color <= b.color }
     end
 
     def reverse_boxes_array(boxes)
       mergesort(boxes) { |a,b| a.weight >= b.weight }
+      # OR use .reverse method below
     end
 
   private
+
+    def reverse(array, &block)
+      # TODO
+    end
 
     def mergesort(array, &block)
       return array if array.size <= 1
