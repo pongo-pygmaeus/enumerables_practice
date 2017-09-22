@@ -4,7 +4,7 @@
 
 *What are we trying to do here?* 
 
-Write code to pass the tests. Well that and also try to develop an understanding of how enumerables work in Ruby and the connection between the methods of the `Enumerable` module and basic iterative control flow (e.g. `while`, `for`, and `until` loops).
+In short, we are trying to write code to pass the `rspec` tests located in `spec/enumerables_spec.rb`. We are also trying to develop an understanding of how enumerables work in Ruby, and the connection between the methods of the `Enumerable` module and basic iterative control flow (e.g. `while`, `for`, and `until` loops).
 
 *What is an enumerable?* 
 
@@ -33,7 +33,7 @@ while counter < list_length do
   counter += 1
 end
 ```
-In the above case our the program outputs 
+In the above case the program outputs 
 ```
 I laughed hard at 'All's Well That Ends Well'
 I laughed hard at 'As You Like It'
@@ -71,9 +71,9 @@ shakespeare_comedies.each do
   puts "I laughed hard at '#{shakespeare_comedies[counter]}'"
 end
 ```
-It should be immediately apparent that the `each` construction saves the programmer some mental overhead. First we no longer have to worry about maintaining a `counter` variable that must be updated. Second, we don't need to worry about the logic that terminates the loop. Third, we don't have 3 extra lines of code that cause potential bugs. So, if you're going to iterate through a colleciton in Ruby, don't use a `for` or `while` loop, use an `each` loop that will automatically do something to `each` element in the collection. Aren't `Enumerable` methods , great?
+It should be immediately apparent that the `each` construction saves the programmer some mental overhead. First, we no longer have to worry about maintaining a `counter` variable that must be updated. Second, we don't need to worry about the logic that terminates the loop. Third, we don't have three extra lines of code that cause potential bugs. So, if you're going to iterate through a collection in Ruby, don't use a `for` or `while` loop. Instead, use an `each` loop that will automatically do something to `each` element in the collection. Aren't `Enumerable` methods great?
 
-But iterating in Ruby doesn't stop there and the language has much more power than the `each` operator. Ruby Enumerables are also designed to handle common operations that programmers would frequently have to implement themselves using standard `while` and `for` loops, e.g. find the largest element in an array, return a new array that contains the square roots of the elements in an existing array, or multiply all the elements in array together and return the result. Ruby has methods to handle all of these and more.
+But iterating in Ruby doesn't stop there and the language has much more power than the `each` operator. Ruby enumerables are also designed to handle common operations that programmers would frequently have to implement themselves using standard `while` and `for` loops (e.g. find the largest element in an array, return a new array that contains the square roots of the elements in an existing array, or multiply all the elements in array together and return the result). Ruby has methods to handle all of these and more.
 
 So, that's what this repo is for. 
 
