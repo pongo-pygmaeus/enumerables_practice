@@ -2,8 +2,6 @@
 
 ### Purpose
 
-*What are we trying to do here?* 
-
 In short, we are trying to write code to pass the `rspec` tests located in `spec/enumerables_spec.rb`. We are also trying to develop an understanding of how enumerables work in Ruby, and the connection between the methods of the `Enumerable` module and basic iterative control flow (e.g. `while`, `for`, and `until` loops).
 
 *What is an enumerable?* 
@@ -33,6 +31,7 @@ while counter < list_length do
   counter += 1
 end
 ```
+
 In the above case the program outputs 
 ```
 I laughed hard at 'All's Well That Ends Well'
@@ -75,7 +74,7 @@ It should be immediately apparent that the `each` construction saves the program
 
 But iterating in Ruby doesn't stop there and the language has much more power than the `each` operator. Ruby enumerables are also designed to handle common operations that programmers would frequently have to implement themselves using standard `while` and `for` loops (e.g. find the largest element in an array, return a new array that contains the square roots of the elements in an existing array, or multiply all the elements in array together and return the result). Ruby has methods to handle all of these and more.
 
-So, that's what this repo is for. 
+So, that's what this repo is for.
 
 If you look at the file called `enumerables_practice.rb` you'll see a bunch of empty methods. The methods are named after the kind of enumerable methods you should use to pass their associated tests. Write the methods. Pass the tests. That's it! If you're uncomfortable with the higher order methods (`map`, `reduce`) implement all the `each` methods until you're completely solid. Be sure to reference (and get comfortable doing so) the Ruby `Enumerable` documentation located [here](https://ruby-doc.org/core-2.4.2/Enumerable.html). Everything you need is on that page.
 
