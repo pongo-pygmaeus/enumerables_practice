@@ -77,7 +77,7 @@ But iterating in Ruby doesn't stop there and the language has much more power th
 
 So, that's what this repo is for. 
 
-If you look at the file called `enumerables_practice.rb` you'll see a bunch of empty methods. The methods are named after the kind of enumerable methods you should use to pass their associated tests. Write the methods. Pass the tests. That's it! If you're uncomfortable with the higher order methods (`map`, `reduce`) implement all the `each` methods until you're completely solid. 
+If you look at the file called `enumerables_practice.rb` you'll see a bunch of empty methods. The methods are named after the kind of enumerable methods you should use to pass their associated tests. Write the methods. Pass the tests. That's it! If you're uncomfortable with the higher order methods (`map`, `reduce`) implement all the `each` methods until you're completely solid. Be sure to reference (and get comfortable doing so) the Ruby `Enumerable` documentation located [here](https://ruby-doc.org/core-2.4.2/Enumerable.html). Everything you need is on that page.
 
 There is a `solutions` branch you can use to check your work against or get hints from. But try to come up with your own solutions before looking at the provided answers.
 
