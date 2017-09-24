@@ -80,4 +80,61 @@ If you look at the file called `enumerables_practice.rb` you'll see a bunch of e
 
 There is a `solutions` branch you can use to check your work against or get hints from. But try to come up with your own solutions before looking at the provided answers.
 
-Happy Hacking!
+### Some Comments on `map`
+For many programmers at the beginning of their Ruby journey, the `Enumerable#map` poses a serious challenge. But really, `map` isn't doing anything dramatically differently from `each`. The only significant difference between the behavior of `each` and `map` *is the return value of the methods*. 
+
+As we saw earlier, `each` is a simplified way to construct a loop in Ruby. Calling `each` on a collection performs some action with each element of the array. The only side effect of running `each` is whatever is produced by running some operation on every element in an array. Take a look at the following code:
+```
+def loop_over_collection(input_array)
+  return input_array.each do |element|
+    puts "#{element} is a great number!!"
+  end
+end
+
+collection = [1,2,3,4,5]
+p loop_over_collection(collection)
+```
+As we can see, the `loop_over_collection(input_array)` method takes a collection as its input and returns the result of running an `each` method on that collection. So what does the output look like?
+```
+1 is a great number!!
+2 is a great number!!
+3 is a great number!!
+4 is a great number!!
+5 is a great number!!
+[1, 2, 3, 4, 5]
+```
+Not surprising. The `each` loop iterates over every element of our collection, prints out a message, then returns the result of the `each`. Well what is the return value of `each`? It is the array on which `each` was originally called. That's why when we call `p loop_over_collection(collection)` we get the line of output `[1, 2, 3, 4, 5]`. 
+
+If you're wondering where we're going with this, let's change the above method slightly. We'll still use an `each` statement, but instead of printing a message for each element we'll do a mathematical operation.
+```
+def loop_over_collection(input_array)
+  return input_array.each do |element|
+    element * 3
+  end
+end
+
+collection = [1,2,3,4,5]
+p loop_over_collection(collection)
+```
+Here's our output:
+```
+[1, 2, 3, 4, 5]
+```
+Why's that? Well the `each` statement is multiplying every element in the array by 3 but those results aren't being stored anywhere. And as we know, the return value of `each` is the original array on which `each` was called. So our output is just our original array. 
+
+Let's jump one step further and replace our `each` statement above with a `map` statement. 
+```
+def loop_over_collection(input_array)
+  return input_array.map do |element|
+    element * 3
+  end
+end
+
+collection = [1,2,3,4,5]
+p loop_over_collection(collection)
+```
+All we did was replace our single `each` call with `map` and our output looks like this: 
+```
+[3, 6, 9, 12, 15]
+```
+When we run `map` we're running an operation on every element of an array, just like `each`. But instead of just performing an operation on every element then moving on, `map` stores the results of running those operations *and returns a new array with those results*. So, as we can see we've *mapped* `[1,2,3,4,5]` to a new array (`[3, 6, 9, 12, 15]`) containing the original elements each multiplied by 3. Obviously we could achieve this same behavior with each by creating a temporary array variable, shovelling each result into the temporary array, then returning the new array. But Ruby, again, gives us options to doing more with less. In this case a wonderful enumerable method that performs operations on every element of a collection *and* returns those results in a new array. 
