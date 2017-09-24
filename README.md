@@ -157,7 +157,7 @@ If things are still unclear, it might help to take a moment and consider why `ma
 ![earth](http://xaharts.org/dinju/i/google_earth.jpg)
 <br>
 <br>
-But when we're dealing with printing or displaying geographic data, a computer screen or a printer doesn't deal in `latitude` or `longitude`. More likely, they work in pixel coordinates. So to display a map to a user that represents a set of `latitude` and `longitude` coordinates, we need to actually perform an operation that converts the original dataset into a dataset we can use to print or display the data. Well, what is that operation? How about `map`?
+But when we're dealing with printing or displaying geographic data, a computer screen or a printer doesn't work in `latitude` or `longitude`. More likely, they use pixel coordinates. So to display a map to a user that represents a set of `latitude` and `longitude` coordinates, we need to actually perform an operation that converts the original dataset into a dataset we can use to print or display the data. Well, what is that operation? How about `map`?
 
 Let's look at a, hopefully, explanatory example. Suppose I sent out a crack geogprahic mapping team to measure shifting coastlines adjacent to an estuary that has enlarged due to rising sea levels from global climate change (this would never happen, I know). When they come back, they have a nice `Excel` spreadsheet with the following `latitude`/`longitude` pairs that indicate new high tide points:
 ```
@@ -178,7 +178,7 @@ I say to my team, "that's cool, but I want to see these coordinates on a map so 
 def convert_to_pixels(original_coordinates)
   original_coordinates.map do | coordinate_pair |
     coordinate_pair.map do | coordinate |
-      coordinate/20.0
+      (coordinate/20.0).to_i
     end
   end
 end
@@ -199,15 +199,15 @@ p convert_to_pixels(coordinates)
 ```
 And when we run our code, we get a nice new set of "pixels":
 ```
-[[0.8518005035855929, -1.843745385718093], 
-[1.2873607949637105, -1.8688436720991757], 
-[-4.090215285966959, 0.18539390923441204], 
-[-2.031473992242268, 2.962050560886195], 
-[-1.1862628095079202, 3.60215894068113], 
-[2.675871046598812, 4.017004858635971], 
-[-2.80252458361891, -3.0993630330766884], 
-[-4.447927440148771, 1.551492837724986],
-[-0.4014310462259189, 4.383514431008619], 
-[2.6143093238534334, -0.4009415972543685]]
+[[0, -1], 
+ [1, -1], 
+ [-4, 0], 
+ [-2, 2], 
+ [-1, 3], 
+ [2, 4], 
+ [-2, -3], 
+ [-4, 1], 
+ [0, 4], 
+ [2, 0]]
 ```
 Now I can send this off to my printing team and they can make me a beautiful new map I can hang on my office door. How lovely. 
