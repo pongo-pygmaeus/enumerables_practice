@@ -81,7 +81,7 @@ If you look at the file called `enumerables_practice.rb` you'll see a bunch of e
 There is a `solutions` branch you can use to check your work against or get hints from. But try to come up with your own solutions before looking at the provided answers.
 
 ### Some Comments on `map`
-For many programmers at the beginning of their Ruby journey, the `Enumerable#map` poses a serious challenge. But really, `map` isn't doing anything dramatically differently from `each`. The only significant difference between the behavior of `each` and `map` *is the return value of the methods*. 
+For many programmers at the beginning of their Ruby journey, the `Enumerable#map` method poses a serious challenge. But really, `map` isn't doing anything dramatically differently from `each`. The only significant difference between the behavior of `each` and `map` *is the return value of the methods*. 
 
 As we saw earlier, `each` is a simplified way to construct a loop in Ruby. Calling `each` on a collection performs some action with each element of the array. The only side effect of running `each` is whatever is produced by running some operation on every element in an array. Take a look at the following code:
 ```
