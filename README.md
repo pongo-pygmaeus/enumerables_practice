@@ -66,8 +66,8 @@ end
 ```
 #### Each Loop
 ```
-shakespeare_comedies.each do
-  puts "I laughed hard at '#{shakespeare_comedies[counter]}'"
+shakespeare_comedies.each do |comedy|
+  puts "I laughed hard at '#{comedy}'"
 end
 ```
 It should be immediately apparent that the `each` construction saves the programmer some mental overhead. First, we no longer have to worry about maintaining a `counter` variable that must be updated. Second, we don't need to worry about the logic that terminates the loop. Third, we don't have three extra lines of code that cause potential bugs. So, if you're going to iterate through a collection in Ruby, don't use a `for` or `while` loop. Instead, use an `each` loop that will automatically do something to `each` element in the collection. Aren't `Enumerable` methods great?
