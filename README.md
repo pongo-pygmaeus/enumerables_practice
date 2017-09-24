@@ -153,7 +153,9 @@ Obviously we could achieve this same behavior with each by creating a temporary 
 
 If things are still unclear, it might help to take a moment and consider why `map` is called `map`. Imagine physical *maps* you may have seen throughout your life. You might picture a foldable road map, or an atlas, or (more likely these days) a product like Google Maps. What property do these maps share? They are all representations of some original dataset. If you're building a map, you need some information about the area you're going to draw. Most likely, you have a set of coordinates of `latitude` and `longitude` that correspond to where things are physically located on planet Earth, like so:
 <br>
+<br>
 ![earth](http://xaharts.org/dinju/i/google_earth.jpg)
+<br>
 <br>
 But when we're dealing with printing or displaying geographic data, a computer screen or a printer doesn't deal in `latitude` or `longitude`. More likely, they work in pixel coordinates. So to display a map to a user that represents a set of `latitude` and `longitude` coordinates, we need to actually perform an operation that converts the original dataset into a dataset we can use to print or display the data. Well, what is that operation? How about `map`?
 
