@@ -151,7 +151,7 @@ Input        Output
      4  --> 12
      5  --> 15
 ```
-Obviously we could achieve this same behavior with each by creating a temporary array variable, shovelling each result into the temporary array, then returning the new array. But Ruby, again, gives us options to doing more with less. In this case a wonderful enumerable method that performs operations on every element of a collection *and* returns those results in a new array. 
+Obviously we could achieve this same behavior with each by creating a temporary array variable, shovelling each result into the temporary array, then returning the new array. But Ruby, again, gives us options to do more with less. In this case we have a wonderful enumerable method that performs operations on every element of a collection *and* returns those results in a new array. 
 
 If things are still unclear, it might help to take a moment and consider why `map` is called `map`. Imagine physical *maps* you may have seen throughout your life. You might picture a foldable road map, or an atlas, or (more likely these days) a product like Google Maps. What property do these maps share? They are all representations of some original dataset. If you're building a map, you need some information about the area you're going to draw. Most likely, you have a set of coordinates of `latitude` and `longitude` that correspond to where things are physically located on planet Earth, like so:
 <br>
