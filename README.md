@@ -27,7 +27,8 @@ shakespeare_comedies =
 list_length = shakespeare_comedies.length
 counter = 0
 while counter < list_length do
-  puts "I laughed hard at '#{shakespeare_comedies[counter]}'"
+  comedy = shakespeare_comedies[counter]
+  puts "I laughed hard at '#{comedy}'"
   counter += 1
 end
 ```
@@ -60,7 +61,8 @@ Because one of the core features of Ruby is its *elegant syntax that is natural 
 list_length = shakespeare_comedies.length
 counter = 0
 while counter < list_length do
-  puts "I laughed hard at '#{shakespeare_comedies[counter]}'"
+  comedy = shakespeare_comedies[counter]
+  puts "I laughed hard at '#{comedy}'"
   counter += 1
 end
 ```
