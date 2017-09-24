@@ -81,7 +81,7 @@ If you look at the file called `enumerables_practice.rb` you'll see a bunch of e
 There is a `solutions` branch you can use to check your work against or get hints from. But try to come up with your own solutions before looking at the provided answers.
 
 ### Some Comments on `map`
-For many programmers at the beginning of their Ruby journey, the `Enumerable#map` poses a serious challenge. But really, `map` isn't doing anything dramatically differently from `each`. The only significant difference between the behavior of `each` and `map` *is the return value of the methods*. 
+For many programmers at the beginning of their Ruby journey, the `Enumerable#map` method poses a serious challenge. But really, `map` isn't doing anything dramatically differently from `each`. The only significant difference between the behavior of `each` and `map` *is the return value of the methods*. 
 
 As we saw earlier, `each` is a simplified way to construct a loop in Ruby. Calling `each` on a collection performs some action with each element of the array. The only side effect of running `each` is whatever is produced by running some operation on every element in an array. Take a look at the following code:
 ```
@@ -137,7 +137,9 @@ All we did was replace our single `each` call with `map` and our output looks li
 ```
 [3, 6, 9, 12, 15]
 ```
-When we run `map` we're running an operation on every element of an array, just like `each`. But instead of just performing an operation on every element then moving on, `map` stores the results of running those operations *and returns a new array with those results*. So, as we can see we've *mapped* `[1,2,3,4,5]` to a new array (`[3, 6, 9, 12, 15]`) containing the original elements each multiplied by 3. Here is a slightly different view of what the map operation is doing:
+When we run `map` we're running an operation on every element of an array, just like `each`. But instead of just performing an operation on every element then moving on, `map` stores the results of running those operations *and returns a new array with those results*. 
+
+So, as we can see we've *mapped* `[1,2,3,4,5]` to a new array (`[3, 6, 9, 12, 15]`) containing the original elements each multiplied by 3. Here is a slightly different view of what the map operation is doing:
 ```
 Input        Output
         map
@@ -148,3 +150,64 @@ Input        Output
      5  --> 15
 ```
 Obviously we could achieve this same behavior with each by creating a temporary array variable, shovelling each result into the temporary array, then returning the new array. But Ruby, again, gives us options to doing more with less. In this case a wonderful enumerable method that performs operations on every element of a collection *and* returns those results in a new array. 
+
+If things are still unclear, it might help to take a moment and consider why `map` is called `map`. Imagine physical *maps* you may have seen throughout your life. You might picture a foldable road map, or an atlas, or (more likely these days) a product like Google Maps. What property do these maps share? They are all representations of some original dataset. If you're building a map, you need some information about the area you're going to draw. Most likely, you have a set of coordinates of `latitude` and `longitude` that correspond to where things are physically located on planet Earth, like so:
+<br>
+<br>
+![earth](http://xaharts.org/dinju/i/google_earth.jpg)
+<br>
+<br>
+But when we're dealing with printing or displaying geographic data, a computer screen or a printer doesn't deal in `latitude` or `longitude`. More likely, they work in pixel coordinates. So to display a map to a user that represents a set of `latitude` and `longitude` coordinates, we need to actually perform an operation that converts the original dataset into a dataset we can use to print or display the data. Well, what is that operation? How about `map`?
+
+Let's look at a, hopefully, explanatory example. Suppose I sent out a crack geogprahic mapping team to measure shifting coastlines adjacent to an estuary that has enlarged due to rising sea levels from global climate change (this would never happen, I know). When they come back, they have a nice `Excel` spreadsheet with the following `latitude`/`longitude` pairs that indicate new high tide points:
+```
+coordinates =
+   [[17.036010071711857, -36.87490771436186],
+   [25.74721589927421, -37.37687344198351],
+   [-81.80430571933918, 3.7078781846882407],
+   [-40.62947984484536, 59.241011217723894],
+   [-23.725256190158404, 72.0431788136226],
+   [53.51742093197623, 80.34009717271942],
+   [-56.0504916723782, -61.98726066153377],
+   [-88.95854880297541, 31.02985675449972],
+   [-8.028620924518378, 87.67028862017239],
+   [52.28618647706867, -8.01883194508737]]
+```
+I say to my team, "that's cool, but I want to see these coordinates on a map so I can visualize the changes." So, using a highly scientific algorithm that converts `latitude`/`longitude` coordinates to `pixel` coordinates, my team `maps` the original dataset to one I can use to print a visual map:
+```
+def convert_to_pixels(original_coordinates)
+  original_coordinates.map do | coordinate_pair |
+    coordinate_pair.map do | coordinate |
+      coordinate/20.0
+    end
+  end
+end
+
+coordinates =
+   [[17.036010071711857, -36.87490771436186],
+   [25.74721589927421, -37.37687344198351],
+   [-81.80430571933918, 3.7078781846882407],
+   [-40.62947984484536, 59.241011217723894],
+   [-23.725256190158404, 72.0431788136226],
+   [53.51742093197623, 80.34009717271942],
+   [-56.0504916723782, -61.98726066153377],
+   [-88.95854880297541, 31.02985675449972],
+   [-8.028620924518378, 87.67028862017239],
+   [52.28618647706867, -8.01883194508737]]
+
+p convert_to_pixels(coordinates)
+```
+And when we run our code, we get a nice new set of "pixels":
+```
+[[0.8518005035855929, -1.843745385718093], 
+[1.2873607949637105, -1.8688436720991757], 
+[-4.090215285966959, 0.18539390923441204], 
+[-2.031473992242268, 2.962050560886195], 
+[-1.1862628095079202, 3.60215894068113], 
+[2.675871046598812, 4.017004858635971], 
+[-2.80252458361891, -3.0993630330766884], 
+[-4.447927440148771, 1.551492837724986],
+[-0.4014310462259189, 4.383514431008619], 
+[2.6143093238534334, -0.4009415972543685]]
+```
+Now I can send this off to my printing team and they can make me a beautiful new map I can hang on my office door. How lovely. 
