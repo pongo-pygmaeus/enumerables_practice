@@ -137,4 +137,14 @@ All we did was replace our single `each` call with `map` and our output looks li
 ```
 [3, 6, 9, 12, 15]
 ```
-When we run `map` we're running an operation on every element of an array, just like `each`. But instead of just performing an operation on every element then moving on, `map` stores the results of running those operations *and returns a new array with those results*. So, as we can see we've *mapped* `[1,2,3,4,5]` to a new array (`[3, 6, 9, 12, 15]`) containing the original elements each multiplied by 3. Obviously we could achieve this same behavior with each by creating a temporary array variable, shovelling each result into the temporary array, then returning the new array. But Ruby, again, gives us options to doing more with less. In this case a wonderful enumerable method that performs operations on every element of a collection *and* returns those results in a new array. 
+When we run `map` we're running an operation on every element of an array, just like `each`. But instead of just performing an operation on every element then moving on, `map` stores the results of running those operations *and returns a new array with those results*. So, as we can see we've *mapped* `[1,2,3,4,5]` to a new array (`[3, 6, 9, 12, 15]`) containing the original elements each multiplied by 3. Here is a slightly different view of what the map operation is doing:
+```
+Input        Output
+        map
+     1  --> 3
+     2  --> 6
+     3  --> 9
+     4  --> 12
+     5  --> 15
+```
+Obviously we could achieve this same behavior with each by creating a temporary array variable, shovelling each result into the temporary array, then returning the new array. But Ruby, again, gives us options to doing more with less. In this case a wonderful enumerable method that performs operations on every element of a collection *and* returns those results in a new array. 
